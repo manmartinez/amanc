@@ -4,4 +4,8 @@ class SplashController < ApplicationController
     
   end  
   
+  def play
+  
+  end
+  
 end

@@ -40,6 +40,14 @@ ol {
   background-color: #55d400;
 }
 
+.dark_green_background {
+  background-color: #44AA00;
+}
+
+.darker_green_background {
+  background-color: #338000;
+}
+
 .dark_green {
   color: #005500;
 }
@@ -52,8 +60,26 @@ ol {
   text-align: right;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
 h1 {
   font-size: 3.5em;
+  line-height: 120%;
+}
+
+h2 {
+  font-size: 3em;
+  line-height: 120%;
+}
+
+h3 {
+  font-size: 2em;
   line-height: 120%;
 }
 
@@ -125,7 +151,10 @@ a.green_btn {
 /* Main */
 
 #main {
-  margin: 50px 0;
+  margin: 10px 0;
+}
+
+#main {
   height: 350px;
 }
 
@@ -136,8 +165,8 @@ h1#title {
 
 #green_logo {
   position: absolute;
-  top: 138px;
-  right: 0px;
+  top: 164px;
+  right: 10px;
   width: 314px;
   height: 212px;
   background: url('../images/ui/logo_green.png') no-repeat center center;
@@ -181,4 +210,89 @@ a.sponsor {
   display: block;
   float: left;
   margin: 0 20px;
+}
+
+/* Play */
+#sidebar,
+#question {
+  float: left;
+}
+
+#question {
+  width: 700px;
+}
+
+#sidebar {
+  width: 220px;
+  padding: 0 20px;
+}
+
+ol#guidelines {
+  font-size: 1.2em;
+  color: #17280b;
+  margin-left: 25px;
+}
+
+ol#guidelines li {
+  margin: 10px 0;
+}
+
+a.answer {
+  font-size: 1.8em;
+  text-decoration: none;
+  color: #005500;
+  display: block;
+  margin: 10px 0;
+  border: none;
+  outline:none;
+  transition: color 200ms ease-in;
+  -webkit-transition: color 200ms ease-in;
+  -moz-transition: color 200ms ease-in;
+  -o-transition: color 200ms ease-in;
+}
+a.answer:hover{
+  color: #fce94f;
+}
+
+#main_head {
+  margin-top: 10px;
+}
+
+#question,
+#sidebar,
+#question_wrapper {
+  height: 350px;
+}
+
+#question_wrapper {
+  margin-top: 10px;
+}
+
+#banner_wrapper,
+#score {
+  float: left;
+}
+
+#score {
+  text-align: right;
+  color: #4d4d4d;
+  width: 250px;
+}
+
+#score span {
+  display: block;
+}
+
+#score span.big {
+  font-size: 2em;
+}
+#banner_wrapper {
+  height: 100px;
+  width: 700px;
+  background-color: #CCCCCC;
+}
+#game_details {
+  height: 22px;
+  margin-bottom: 10px;
+  padding-top: 6px;
 }

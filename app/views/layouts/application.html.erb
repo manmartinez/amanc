@@ -6,11 +6,18 @@
   <%= stylesheet_link_tag 'amanc' %>  
   <%= javascript_include_tag 'jquery-1.9.1.min' %>
   <%= javascript_include_tag 'plugins/fmx_animate' %>
+  <script type="text/javascript">
+    (function(){
+      $(function(){
+        $.fmx_animate();      
+      });
+    })(jQuery);
+  </script>
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-<%= yield %>
-
+  <%= render :partial => 'shared/header' %>
+  <%= yield %>
+  <%= render :partial => 'shared/footer' %>
 </body>
 </html>
