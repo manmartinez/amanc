@@ -273,3 +273,20 @@ a.blue_btn {
   display: inline-block;
   margin: 0 5px;
 }
+
+.crumbs {
+  margin: 1em 0;
+  color: #888a85;
+}
+
+.crumbs a:visited,
+.crumbs a:active,
+.crumbs a:link,
+.crumbs a {
+  text-decoration: none;
+  color: #49CCED;  
+}
+
+.crumbs a:hover {
+  border-bottom: 1px dotted #49CCED;
+}

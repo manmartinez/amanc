@@ -4,6 +4,9 @@
 
 <div id="main">
   <div class="content_wrapper">
+    <div class="crumbs">
+       <%= link_to @level.topic.name, admin_topic_url(@level.topic) %> > <%= @level.name %>
+    </div>
     <div id="section_actions">
       <%= link_to '+ Agregar', new_admin_level_question_url(@level), :class => 'btn blue_btn' %>
     </div>

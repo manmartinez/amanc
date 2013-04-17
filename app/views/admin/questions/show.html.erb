@@ -4,6 +4,9 @@
 <div id="main">
   <div class="content_wrapper">
     <div>
+      <div class="crumbs">
+         <%= link_to @question.level.topic.name, admin_topic_url(@question.level.topic) %> > <%= link_to @question.level.name, admin_level_url(@question.level) %> > <%= truncate @question.text, :length => 20 %>
+      </div>
       <div class="left">
         <h2><%= @question.text %></h2>
       </div>

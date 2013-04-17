@@ -111,7 +111,7 @@
   <table id="TAB27" populated="true" UUID="28caa3c8-caf3-41a8-8b94-cb9fb73693d8" name="games" objectType="TABLE" physicalName="games" >
    <remarks></remarks>
    <folder id="FOLTAB271" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL28" populated="true" UUID="133cf72a-01a3-45fb-9632-e66cbc17cd74" autoIncrement="false" autoIncrementSequenceName="games_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="4" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL28" populated="true" UUID="133cf72a-01a3-45fb-9632-e66cbc17cd74" autoIncrement="true" autoIncrementSequenceName="games_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="4" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
     <column id="COL29" populated="true" UUID="6a6b75f6-38fc-4e12-a7f6-1441f0b6833a" autoIncrement="false" autoIncrementSequenceName="games_player_id_seq" defaultValue="" name="player_id" nullable="1" physicalName="player_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
@@ -297,7 +297,7 @@
   <table id="TAB79" populated="true" UUID="1a966f38-fcde-496d-9c1c-f2942a991a86" name="banners" objectType="TABLE" physicalName="banners" >
    <remarks></remarks>
    <folder id="FOLTAB791" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL80" populated="true" UUID="add98b32-bf30-47b1-909b-90cef47ac0e2" autoIncrement="false" autoIncrementSequenceName="banners_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL80" populated="true" UUID="add98b32-bf30-47b1-909b-90cef47ac0e2" autoIncrement="true" autoIncrementSequenceName="banners_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
     <column id="COL81" populated="true" UUID="ef746696-f658-4b4c-af47-519aa7af8b58" autoIncrement="false" autoIncrementSequenceName="banners_url_seq" defaultValue="" name="url" nullable="0" physicalName="url" precision="150" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
