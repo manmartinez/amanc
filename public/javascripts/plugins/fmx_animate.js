@@ -6,7 +6,6 @@
         this.fadeElementsIn();
       },
       fadeElementsIn: function() {
-        console.log(this.step);
         var elements = $('[data-transition="fade_in"][data-step="' + this.step + '"]');
         if(elements.length > 0) {
           elements.fadeIn(500);

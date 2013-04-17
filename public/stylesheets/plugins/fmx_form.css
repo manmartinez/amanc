@@ -1,0 +1,13 @@
+.fmx_form input[type="reset"].fmx_form_reset_btn{
+	display: none;
+}
+
+.field_errors {
+    text-align: right;
+    margin-top: 5px;
+    font-size: 0.8em;
+    text-shadow: 1px 1px 1px #FFFFFF;   
+    color: #4D4D4D;
+}
+
+

@@ -1,0 +1,35 @@
+<div id="header">
+  <div id="top_header">
+    <div class="content_wrapper">
+      <div id="logo">
+        <%= image_tag 'ui/logo_white.png' %>
+      </div>
+      <div id="user_info">
+        <%= @current_user.full_name %><br />
+        <%= link_to 'Logout', logout_url %>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div id="navbar">
+    <div class="content_wrapper">
+      <%= link_to admin_users_url do %>
+        <i class="icon-user"></i>
+        <span>Usuarios</span>
+      <% end %>
+      <%= link_to admin_players_url do %>
+        <i class="icon-group"></i>
+        <span>Jugadores</span>
+      <% end %>
+      <%= link_to admin_sponsors_url do %>
+        <i class="icon-globe"></i>
+        <span>Patrocinadores</span>
+      <% end %>
+      <%= link_to admin_topics_url do %>
+        <i class="icon-edit"></i>
+        <span>Trivias</span>
+      <% end %>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>

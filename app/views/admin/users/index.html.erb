@@ -1,0 +1,49 @@
+<% content_for :section_title do %>
+  Usuarios
+<% end %>
+
+<div id="main">
+  <div class="content_wrapper">
+    <div id="section_actions">
+      <%= link_to '+ Agregar', new_admin_user_url, :class => 'btn blue_btn' %>
+    </div>
+    <% if @users.any? %>
+      <table class="custom_table">
+        <thead>
+          <tr>
+            <th class="first">Nombre</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th class="action"></th>
+            <th class="action last"></th>
+          </tr>
+          
+        </thead>  
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.surname %></td>
+              <td><%= user.email %></td>
+              <td class="action">
+                <%= link_to edit_admin_user_url(user) do %>
+                  <i class="icon-pencil" data-tooltip="Editar"></i>
+                <% end %>
+              </td>
+              <td class="action">
+                <%= link_to admin_user_url(user), :method => 'delete' do %>
+                  <i class="icon-remove" data-tooltip="Eliminar"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p class="center not_found">No hay usuarios</p>
+    <% end %>
+
+  </div>
+  
+  
+</div>

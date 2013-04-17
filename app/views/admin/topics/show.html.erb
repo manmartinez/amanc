@@ -1,0 +1,47 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'admin/topics/show' %>
+<% end %>
+<% content_for :section_title do %>
+  <%= @topic.name %>
+<% end %>
+
+<div id="main">
+  <div class="content_wrapper">
+    <div id="section_actions">
+      <%= link_to '+ Agregar', admin_levels_url(:topic_id => @topic.id), :class => 'btn blue_btn',:id => 'create_level' %>
+    </div>
+    <% if @topic.levels.any? %>
+      <table class="custom_table">
+        <thead>
+          <tr>          
+            <th class="first">Nombre</th>
+            <th>Preguntas</th>
+            <th class="action"></th>
+            <th class="action last"></th>
+          </tr>
+          
+        </thead>  
+        <tbody>
+          <% @topic.levels.each do |level| %>
+            <tr>
+              <td><%= level.name %></td>
+              <td><%= level.questions.count(:id) %></td>
+              <td class="action">
+                <%= link_to admin_level_url(level) do %>
+                  <i class="icon-reorder" data-tooltip="Detalles"></i>
+                <% end %>
+              </td>              
+              <td class="action">
+                <%= link_to admin_level_url(level), :method => 'delete' do %>
+                  <i class="icon-remove" data-tooltip="Eliminar"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p class="center not_found">No se han agregado niveles</p>
+    <% end %>
+  </div> 
+</div>

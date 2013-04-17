@@ -1,0 +1,20 @@
+<% content_for :section_title do %>
+  Editar logo
+<% end %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'forms' %>
+<% end %>
+<div id="main">
+  <div class="content_wrapper">
+    <%= form_for @sponsor, :url => update_logo_admin_sponsor_url(@sponsor), :html => {:multipart => true, :class => 'custom_form section_form'} do |f| %>
+      <div class="field first">
+        <%= f.label :logo, 'Logo' %>
+        <%= f.file_field :logo %>
+      </div>
+      <div class="actions">
+        <%= f.submit 'Continuar', :class => 'btn blue_btn' %>        
+      </div>
+    <% end %>
+  </div> 
+</div>

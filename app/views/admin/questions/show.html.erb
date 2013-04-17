@@ -1,0 +1,49 @@
+<% content_for :section_title do %>
+  <%= truncate @question.text, :length => 20 %>
+<% end %>
+<div id="main">
+  <div class="content_wrapper">
+    <div>
+      <div class="left">
+        <h2><%= @question.text %></h2>
+      </div>
+      <div class="right">
+        <%= link_to '+Agregar', new_admin_question_answer_url(@question), :class => 'btn blue_btn' %>
+      </div>
+      <div class="clear"></div>    
+    </div><br />
+    <% if @question.answers.any? %>
+      <table class="custom_table">
+        <thead>
+          <tr>          
+            <th class="first">Respuesta</th>
+            <th>&iquest;Correcta?</th>
+            <th class="action"></th>
+            <th class="action last"></th>
+          </tr>
+          
+        </thead>  
+        <tbody>
+          <% @question.answers.each do |answer| %>
+            <tr>
+              <td><%= answer.text %></td>
+              <td><%= answer.correct? ? 'Si' : 'No' %></td>
+              <td class="action">
+                <%= link_to edit_admin_question_answer_url(@question, answer) do %>
+                  <i class="icon-pencil" data-tooltip="Editar"></i>
+                <% end %>
+              </td>              
+              <td class="action">
+                <%= link_to admin_question_answer_url(@question, answer), :method => 'delete' do %>
+                  <i class="icon-remove" data-tooltip="Eliminar"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p class="center not_found">No se han agregado respuestas</p>
+    <% end %>
+  </div>
+</div>

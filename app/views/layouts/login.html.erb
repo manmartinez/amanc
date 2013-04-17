@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Amanc</title>
+  <%= stylesheet_link_tag 'reset' %>  
+  <%= stylesheet_link_tag 'font-awesome.min' %>  
+  <%= stylesheet_link_tag 'amanc' %>  
+  <%= stylesheet_link_tag 'login' %>  
+  <%= stylesheet_link_tag 'forms' %>  
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <% if flash[:notice] %>
+    <div id="flash" class="notice">
+      <%= flash[:notice].html_safe %>
+    </div>
+  <% end %>
+  <%= yield %>
+</body>
+</html>

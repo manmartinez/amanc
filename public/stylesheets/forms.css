@@ -1,0 +1,84 @@
+form.custom_form input[type="password"],
+form.custom_form input[type="text"] {
+  border: 1px solid #DADADA;
+  padding: 0px 10px;
+  color: #4d4d4d; 
+  margin: 0px; 
+  width: 75%;
+}
+
+form.custom_form input[type="password"]:focus,
+form.custom_form input[type="text"]:focus {
+  outline: none;
+}
+
+form.custom_form .field {
+  padding: 20px 30px;
+}
+
+form.custom_form input[type="password"],
+form.custom_form input[type="text"],
+form.custom_form .icon_container {
+  display: inline-block;
+  height: 30px;
+  padding: 5px;
+}
+
+form.custom_form label {
+  width: 100px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+form.custom_form .icon_container {
+  width: 30px;
+  background-color: #FAFAFA;
+  border: 1px solid #DADADA;
+  border-right: none;
+  text-align: center;
+}
+form.custom_form .icon_container i {
+  line-height: 30px;
+}
+form.custom_form .actions {
+  text-align: right;
+  padding: 20px 10px;
+}
+
+form.section_form {
+  width: 75%;
+  margin: 0 auto;
+}
+
+form.section_form .field {
+  border-bottom: 1px solid #dadada;
+  border-top: 1px solid #FFFFFF;
+}
+
+form.section_form .field.first {
+  border-top: none;
+}
+
+form.custom_form input.field_with_errors {
+  border: 1px solid #ef2929;
+}
+
+form.custom_form .field_errors {
+  margin-right: 50px;
+}
+
+form.custom_form input[type="password"]:focus,
+form.custom_form input[type="text"]:focus,
+form.custom_form textarea:focus {
+  border: 1px solid #49CCED;
+  box-shadow: 0px 0px 5px #49CCED;
+  -webkit-box-shadow: 0px 0px 5px #49CCED;
+  -moz-box-shadow: 0px 0px 5px #49CCED;
+  transition: border 500ms linear, box-shadow 500ms linear;
+  -webkit-transition: border 500ms linear, box-shadow 500ms linear;
+  -moz-transition: border 500ms linear, box-shadow 500ms linear;
+  -o-transition: border 500ms linear, box-shadow 500ms linear;  
+}
+
+
+

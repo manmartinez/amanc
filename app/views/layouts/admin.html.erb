@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Amanc | Admin</title>
+  <%= stylesheet_link_tag 'reset' %>  
+  <%= stylesheet_link_tag 'font-awesome.min' %>
+  <%= stylesheet_link_tag 'tables' %>  
+  <%= stylesheet_link_tag 'admin' %>
+  <%= stylesheet_link_tag 'tipsy' %>
+  
+  <%= javascript_include_tag 'jquery-1.9.1.min' %>
+  <%= javascript_include_tag 'jquery.tipsy' %>
+  <%= javascript_include_tag 'admin/admin' %>
+  <script type="text/javascript">
+    (function(){
+      $(function(){
+        amanc.init();    
+      });
+    })(jQuery);
+  </script>  
+  <%= yield :head %>
+  
+
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <%= render :partial => 'admin/shared/header' %>
+  <div id="section_header">
+    <div class="content_wrapper">
+      <h2><%= yield :section_title %></h2>
+    </div>
+  </div>
+  <%= yield %>
+  <%= render :partial => 'admin/shared/footer' %>
+</body>
+</html>

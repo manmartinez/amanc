@@ -1,0 +1,54 @@
+<%content_for :head do %>
+  <%= include_gon :namespace => 'amanc.game' %>
+  <%= javascript_include_tag 'play.js' %>
+<% end %>
+<div id="main_head">
+  <div class="wrapper">
+    <div id="banner_wrapper">
+      <%= image_tag Banner.random_banner.image_url %>
+    </div>
+    <div id="score">
+      <span class="big">Manuel Mart&iacute;nez</span>
+      <span class="big" id="score_container"><%= @game.score %></span>
+      <span>puntos</span>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div id="question_wrapper" class="invisible green_background" data-transition="fade_in" data-step="0">
+  <div class="wrapper">
+    <div id="question" class="relative">
+      <div id="question_container">
+        <div class="invisible" data-transition="fade_in" data-step="2">
+          <h2 class="white"><%= @question.text %></h2>
+          <% @question.answers.each do |answer| %>
+            <%= link_to answer.text, play_next_question_url, :class => 'answer', 'data-id' => answer.id %>
+          <% end %>
+        </div>    
+      </div>
+      
+      <div id="green_logo" class ="invisible" data-transition="fade_in" data-step="1"></div>
+    </div>    
+    <div id="sidebar" class="invisible dark_green_background" data-transition="fade_in" data-step="1">
+      <h3 class="white">Instrucciones</h3>
+      <ol id="guidelines">
+        <li>Selecciona la respuesta correcta de entre las opciones</li>
+        <li>Por cada respuesta correcta obtienes 10 puntos</li>
+        <li>Cada 50 puntos uno de nuestros patrocinadores donar&aacute; X cantidad a AMANC</li>
+      </ul>
+    </div>
+    <div class="clear"></div>
+  </div> 
+</div>
+<div id="game_details" class="darker_green_background">
+  <div class="wrapper">
+    <div class="left">
+      <span class="white"><%= @question.topic.name %> | Cambiar tema</span>
+    </div>
+    <div class="right">
+      <span class="white">Nivel <span id="current_level"><%= @question.level.level_number %></span> de <%= @question.level.topic.last_level.level_number %></span>
+    </div>
+    <div class="clear"></div>
+  </div>  
+</div>
+

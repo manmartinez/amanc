@@ -1,0 +1,35 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'plugins/fmx_form' %>
+  <%= javascript_include_tag 'admin/section_form' %>
+  <%= javascript_include_tag 'admin/users/form' %>
+  <%= stylesheet_link_tag 'plugins/fmx_form' %>
+  <%= stylesheet_link_tag 'forms' %>
+  <%= include_gon %>
+<% end %>
+<div class="form_wrapper">
+  <%= form_for [:admin, @user], :html => {:class => 'section_form custom_form', :id => 'section_form'} do |f| %>
+    <div class="field first">
+      <%= f.label :name, 'Nombre' %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :surname, 'Apellidos' %>
+      <%= f.text_field :surname %>
+    </div>
+    <div class="field">
+      <%= f.label :email, 'Email' %>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :password, 'Password' %>
+      <%= f.password_field :password, :placeholder => (@user.new_record? ? '' : '(sin modificar)') %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation, 'Confirme password' %>
+      <%= f.password_field :password_confirmation, :placeholder => (@user.new_record? ? '' : '(sin modificar)') %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Continuar', :class => 'btn blue_btn' %>
+    </div>
+  <% end %>
+</div>

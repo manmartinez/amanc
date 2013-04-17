@@ -1,0 +1,55 @@
+<% content_for :section_title do %>
+  Patrocinadores
+<% end %>
+
+<div id="main">
+  <div class="content_wrapper">
+    <div id="section_actions">
+      <%= link_to '+ Agregar', new_admin_sponsor_url, :class => 'btn blue_btn' %>
+    </div>
+    <% if @sponsors.any? %>
+      <table class="custom_table">
+        <thead>
+          <tr>
+            <th class="first">Nombre</th>
+            <th>Cr&eacute;dito</th>
+            <th>Banners</th>
+            <th class="action"></th>
+            <th class="action"></th>
+            <th class="action last"></th>
+          </tr>
+          
+        </thead>  
+        <tbody>
+          <% @sponsors.each do |sponsor| %>
+            <tr>
+              <td><%= sponsor.name %></td>
+              <td><%= number_to_currency sponsor.credit %></td>
+              <td><%= sponsor.banners.count(:id) %></td>
+              <td class="action">
+                <%= link_to admin_sponsor_url(sponsor) do %>
+                  <i class="icon-reorder" data-tooltip="Detalles"></i>
+                <% end %>
+              </td>
+              <td class="action">
+                <%= link_to edit_admin_sponsor_url(sponsor) do %>
+                  <i class="icon-pencil" data-tooltip="Editar"></i>
+                <% end %>
+              </td>
+              <td class="action">
+                <%= link_to admin_sponsor_url(sponsor), :method => 'delete' do %>
+                  <i class="icon-remove" data-tooltip="Eliminar"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p class="center not_found">No hay patrocinadores</p>
+    <% end %>
+
+  </div>
+  
+  
+</div>

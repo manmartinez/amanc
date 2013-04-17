@@ -83,6 +83,7 @@ h3 {
   line-height: 120%;
 }
 
+.btn,
 a.btn {
   padding: 8px 10px;
   border-radius: 3px;
@@ -92,11 +93,43 @@ a.btn {
   display: inline-block;
   text-decoration: none;
   font-weight: bold;
+  border: none;
+  cursor: pointer;
 }
 
+.green_btn,
 a.green_btn {
   background-color: #aad400;
   color: #FFFFFF;  
+}
+
+.blue_btn,
+a.blue_btn {
+  background-color: #49CCED;
+  color: #FFFFFF;    
+}
+
+/* Flash */
+
+#flash {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 300px;
+  margin-left: -155px;  
+  text-align: center;
+  padding: 15px 5px;
+  font-weight: bold;
+  border-radius: 0px 0px 3px 3px;
+  -webkit-border-radius: 0px 0px 3px 3px;
+  -moz-border-radius: 0px 0px 3px 3px;
+  -o-border-radius: 0px 0px 3px 3px;
+  
+}
+
+#flash.notice {
+  background-color: #fff49b;
+  color: #ca431b;
 }
 
 /* Header */
@@ -288,9 +321,16 @@ a.answer:hover{
 }
 #banner_wrapper {
   height: 100px;
-  width: 700px;
-  background-color: #CCCCCC;
+  width: 700px; 
+  overflow: hidden;
+  text-align: center;
 }
+
+#banner_wrapper img {
+  max-width: 700px;
+  max-height: 100px;  
+}
+
 #game_details {
   height: 22px;
   margin-bottom: 10px;

@@ -1,0 +1,19 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'plugins/fmx_form' %>
+  <%= javascript_include_tag 'admin/section_form' %>
+  <%= javascript_include_tag 'admin/questions/form' %>
+  <%= stylesheet_link_tag 'plugins/fmx_form' %>
+  <%= stylesheet_link_tag 'forms' %>
+  <%= include_gon %>
+<% end %>
+<div class="form_wrapper">
+  <%= form_for [:admin, @level, @question], :html => {:class => 'section_form custom_form', :id => 'section_form'} do |f| %>
+    <div class="field first">
+      <%= f.label :text, 'Texto' %>
+      <%= f.text_field :text %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Continuar', :class => 'btn blue_btn' %>
+    </div>
+  <% end %>
+</div>

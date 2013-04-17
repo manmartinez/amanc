@@ -1,0 +1,49 @@
+<% content_for :section_title do %>
+  <%= @level.name %>
+<% end %>
+
+<div id="main">
+  <div class="content_wrapper">
+    <div id="section_actions">
+      <%= link_to '+ Agregar', new_admin_level_question_url(@level), :class => 'btn blue_btn' %>
+    </div>
+    <% if @level.questions.any? %>
+      <table class="custom_table">
+        <thead>
+          <tr>          
+            <th class="first">Pregunta</th>
+            <th class="action"></th>
+            <th class="action"></th>
+            <th class="action last"></th>
+          </tr>
+          
+        </thead>  
+        <tbody>
+          <% @level.questions.each do |question| %>
+            <tr>
+              <td><%= truncate question.text, :length => 40 %></td>
+
+              <td class="action">
+                <%= link_to admin_level_question_url(@level, question) do %>
+                  <i class="icon-reorder" data-tooltip="Detalles"></i>
+                <% end %>
+              </td>              
+              <td class="action">
+                <%= link_to edit_admin_level_question_url(@level, question) do %>
+                  <i class="icon-pencil" data-tooltip="Editar"></i>
+                <% end %>
+              </td>
+              <td class="action">
+                <%= link_to admin_level_question_url(@level, question), :method => 'delete' do %>
+                  <i class="icon-remove" data-tooltip="Eliminar"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p class="center not_found">No se han agregado preguntas</p>
+    <% end %>
+  </div> 
+</div>

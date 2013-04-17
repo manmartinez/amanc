@@ -1,0 +1,54 @@
+<% content_for :section_title do %>
+  <%= @sponsor.name %>
+<% end %>
+
+<div id="main">
+  <div class="content_wrapper">    
+    <div id="sponsor_header">
+      <div id="sponsor_logo" class="relative image_with_actions">
+        <%= image_tag(@sponsor.logo_url) %>
+        <div class="image_actions">
+          <%= link_to edit_logo_admin_sponsor_url(@sponsor) do %>
+            <i class="icon-pencil"></i>
+          <% end %>
+        </div>
+      </div>    
+      <div id="sponsor_info">
+        <h2><%= @sponsor.name %></h2>
+        <span class="blue bold medium"><%= number_to_currency(@sponsor.credit) %></span>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div id="banners">
+      <div>
+        <div class="left">
+          <h3>Banners</h3>        
+        </div>
+        <div class="right">
+          <%= link_to 'Agregar +', new_admin_sponsor_banner_url(@sponsor), :id => 'sponsor_logo', :class => 'btn blue_btn' %>        
+        </div>
+        <div class="clear"></div>
+      </div>      
+      
+      <% if @sponsor.banners.any? %>
+        <div id="sponsor_banners">    
+          <% @sponsor.banners.each do |banner| %>
+            <div class="banner image_with_actions">
+              <%= image_tag banner.image_url %>
+              <div class="image_actions">
+                <%= link_to admin_sponsor_banner_url(@sponsor, banner), :method => 'delete' do %>
+                  <i class="icon-remove"></i>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+          <div class="clear"></div>
+        </div>
+      <% else %>
+        <p class="center not_found">No se han agregado banners</p>
+      <% end %>
+
+    </div>
+    
+  </div> 
+</div>

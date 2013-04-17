@@ -1,0 +1,25 @@
+<% content_for :section_title do %>
+  Agregar Banner
+<% end %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'forms' %>
+<% end %>
+
+<div id="main">
+  <div class="content_wrapper">
+    <%= form_for [:admin, @sponsor, @banner], :html => {:multipart => true, :class => 'custom_form section_form'} do |f| %>
+      <div class="field first">
+        <%= f.label :url, 'URL' %>
+        <%= f.text_field :url %>
+      </div>
+      <div class="field">
+        <%= f.label :image, 'Archivo' %>
+        <%= f.file_field :image %>
+      </div>
+      <div class="actions">
+        <%= f.submit 'Continuar', :class => 'btn blue_btn' %>
+      </div>
+    <% end %>
+  </div> 
+</div>

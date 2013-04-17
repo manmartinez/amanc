@@ -1,0 +1,55 @@
+<% content_for :section_title do %>
+  Trivias
+<% end %>
+
+<div id="main">
+  <div class="content_wrapper">
+    <div id="section_actions">
+      <%= link_to '+ Agregar', new_admin_topic_url, :class => 'btn blue_btn' %>
+    </div>
+    <% if @topics.any? %>
+      <table class="custom_table">
+        <thead>
+          <tr>
+            <th class="first">Nombre</th>
+            <th>Niveles</th>
+            <th>Preguntas</th>
+            <th class="action"></th>
+            <th class="action"></th>
+            <th class="action last"></th>
+          </tr>
+          
+        </thead>  
+        <tbody>
+          <% @topics.each do |topic| %>
+            <tr>
+              <td><%= topic.name %></td>
+              <td><%= topic.levels.count(:id) %></td>
+              <td><%= topic.questions.count(:id) %></td>
+              <td class="action">
+                <%= link_to admin_topic_url(topic) do %>
+                  <i class="icon-reorder" data-tooltip="Detalles"></i>
+                <% end %>
+              </td>
+              <td class="action">
+                <%= link_to edit_admin_topic_url(topic) do %>
+                  <i class="icon-pencil" data-tooltip="Editar"></i>
+                <% end %>
+              </td>
+              <td class="action">
+                <%= link_to admin_topic_url(topic), :method => 'delete' do %>
+                  <i class="icon-remove" data-tooltip="Eliminar"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p class="center not_found">No se han agregado trivias</p>
+    <% end %>
+
+  </div>
+  
+  
+</div>

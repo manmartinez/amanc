@@ -1,0 +1,26 @@
+<div id="login">
+  <div id="logo">
+    <%= image_tag 'ui/logo_blue.png' %>
+  </div>
+  <div id="form">
+      <%= form_for :login, :url => authenticate_url, :html => {:class => 'custom_form'} do |f| %>
+        <div class="field">
+          <span class="icon_container">
+            <i class="icon-user"></i>
+          </span>
+          <%= f.text_field :email, :placeholder => 'Email' %>
+          <div class="clear"></div>
+        </div>
+        <div class="field">
+          <span class="icon_container">
+            <i class="icon-lock"></i>
+          </span>
+          <%= f.password_field :password, :placeholder => 'Password' %>        
+          <div class="clear"></div>
+        </div>
+        <div class="actions">
+          <%= f.submit 'Login', :class => 'blue_btn btn' %>
+        </div>
+      <% end %>
+  </div>
+</div>
