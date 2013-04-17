@@ -1,4 +1,5 @@
 Amanc::Application.routes.draw do
+
   root :to => 'splash#index'
   
    
@@ -36,4 +37,5 @@ Amanc::Application.routes.draw do
       resources :banners, :only => [:new, :create, :destroy]
     end
   end
+  
 end

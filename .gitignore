@@ -4,3 +4,4 @@ log/*.log
 tmp/
 test/
 public/system/*
+Gemfile.lock
