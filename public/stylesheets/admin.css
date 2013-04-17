@@ -224,6 +224,10 @@ a.blue_btn {
   float: left;
 }
 
+#sponsor_logo {
+  max-height: 115px;
+}
+
 #sponsor_info {
   margin-left: 20px;
 }
