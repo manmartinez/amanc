@@ -93,7 +93,7 @@
         var banner_link = $('<a></a>')
                               .attr('href', this.view_banner_url.replace(/%id%/g, banner.id))
                               .attr('target', '_blank');
-        $('<img />').attr('src', banner.image_url).appendTo(banner_link);
+        $('<img />').attr('src', amanc.asset_host + banner.image_url).appendTo(banner_link);
         banner_link.appendTo(this.banner_container);
       },
       updateScore: function(game) {

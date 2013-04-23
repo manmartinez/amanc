@@ -1,5 +1,6 @@
 var amanc = {
   csrf_params: {},
+  asset_host: '',
   init: function() {
     this.initCsrfParams();
     this.initAnimations();
