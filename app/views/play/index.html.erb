@@ -1,14 +1,14 @@
-<%content_for :head do %>
+<% content_for :head do %>
   <%= include_gon :namespace => 'amanc.game' %>
   <%= javascript_include_tag 'play.js' %>
 <% end %>
 <div id="main_head">
   <div class="wrapper">
     <div id="banner_wrapper">
-      <%= image_tag Banner.random_banner.image_url %>
+      <%= link_to image_tag(@banner.image_url), view_banner_url(@banner.id), :target => '_blank' %>
     </div>
     <div id="score">
-      <span class="big">Manuel Mart&iacute;nez</span>
+      <span class="big">Score</span>
       <span class="big" id="score_container"><%= @game.score %></span>
       <span>puntos</span>
     </div>
@@ -17,24 +17,45 @@
 </div>
 <div id="question_wrapper" class="invisible green_background" data-transition="fade_in" data-step="0">
   <div class="wrapper">
+    
     <div id="question" class="relative">
-      <div id="question_container">
-        <div class="invisible" data-transition="fade_in" data-step="2">
-          <h2 class="white"><%= @question.text %></h2>
-          <% @question.answers.each do |answer| %>
-            <%= link_to answer.text, play_next_question_url, :class => 'answer', 'data-id' => answer.id %>
-          <% end %>
-        </div>    
-      </div>
-      
-      <div id="green_logo" class ="invisible" data-transition="fade_in" data-step="1"></div>
+      <% unless @game.closed? %> 
+        <div id="question_container">
+          <div class="invisible" data-transition="fade_in" data-step="2">
+            <h2 class="white"><%= @question.text %></h2>
+            <% @question.answers.each do |answer| %>
+              <%= link_to answer.text, play_next_question_url, :class => 'answer', 'data-id' => answer.id %>
+            <% end %>
+          </div>    
+        </div>
+        
+        <div id="green_logo" class ="invisible" data-transition="fade_in" data-step="1"></div>
+        <div id="correct_animation_container" class="question_feedback">
+          &iexcl;Correcto!
+        </div>
+        <div id="incorrect_animation_container" class="question_feedback">
+          &iexcl;Ups! Intenta de nuevo
+        </div>
+        <div id="level_animation_container" class="circular_container">
+          <span class="text_container">
+            Nivel <span class="level_number">1</span>
+          </span>        
+        </div>
+      <% end %>
+      <%= content_tag :div, :id => 'game_ended', :class => (@game.closed? ? 'visible' : 'invisible') do %>
+        <p class="medium white">
+          &iexcl;Felicidades! haz completado todas las preguntas de este tema puedes
+          <%= link_to 'cambiar de tema', play_change_topic_url, :class => 'inline yellow' %> 
+          para seguir apoyando a AMANC
+        </p>
+      <% end %>
     </div>    
     <div id="sidebar" class="invisible dark_green_background" data-transition="fade_in" data-step="1">
       <h3 class="white">Instrucciones</h3>
       <ol id="guidelines">
         <li>Selecciona la respuesta correcta de entre las opciones</li>
         <li>Por cada respuesta correcta obtienes 10 puntos</li>
-        <li>Cada 50 puntos uno de nuestros patrocinadores donar&aacute; X cantidad a AMANC</li>
+        <li>Cada 100 puntos uno de nuestros patrocinadores donar&aacute; $1.00 a AMANC</li>
       </ul>
     </div>
     <div class="clear"></div>
@@ -43,7 +64,7 @@
 <div id="game_details" class="darker_green_background">
   <div class="wrapper">
     <div class="left">
-      <span class="white"><%= @question.topic.name %> | Cambiar tema</span>
+      <span class="white"><%= @question.topic.name %> | <%= link_to 'Cambiar tema', play_change_topic_url, :class => 'inline yellow' %></span>
     </div>
     <div class="right">
       <span class="white">Nivel <span id="current_level"><%= @question.level.level_number %></span> de <%= @question.level.topic.last_level.level_number %></span>

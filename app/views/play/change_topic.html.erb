@@ -1,0 +1,14 @@
+<div id="main" class="green_background">
+  <div class="relative wrapper">
+    <div id="guidelines_wrapper">
+      <h1 id="title" class="invisible white" data-transition="fade_in" data-step="0">Selecciona un tema</h1>
+      <div id="topics" data-transition="fade_in" data-step="2" class="invisible">
+        <% @topics.each do |topic| %>
+          <%= link_to topic.name, select_topic_url(topic.id), :class => 'green_btn btn topic not_so_small' %>
+        <% end %>
+      </div>      
+    </div>    
+    <div id="green_logo" class ="invisible" data-transition="fade_in" data-step="1"></div>
+  </div>  
+</div>
+

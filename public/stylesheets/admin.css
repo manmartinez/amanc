@@ -252,18 +252,28 @@ a.blue_btn {
   opacity: 0.9;
 }
 
+.banner_stats,
 .image_actions {
  position: absolute;
- background-color: #000000;
- bottom: 0;
- right: 0;
+ padding: 5px 0; 
+ bottom: 2px; 
+ color: #FFFFFF;
+}
+
+.banner_stats {
+  left: 0px;
+  background-color: #49CCED;
+  padding: 5px;
+}
+
+.image_actions {
  opacity: 0; 
- padding: 5px 0;
- transition: opacity 300ms linear;
+ right: 0;
+  background-color: #000000;
+  transition: opacity 300ms linear;
  -webkit-transition: opacity 300ms linear;
  -moz-transition: opacity 300ms linear;
  -o-transition: opacity 300ms linear;
- 
 }
 
 .image_actions a {

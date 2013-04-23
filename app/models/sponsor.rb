@@ -29,6 +29,11 @@ class Sponsor < ActiveRecord::Base
     ['/system', 'sponsors', 'logo', 'default.png'].join('/')
   end
   
+  def deduct_credits!(amount)
+    self.credit -= amount
+    self.save!
+  end
+  
   private
     def create_assets_directory
       FileUtils.mkdir_p self.asset_directory_for(:logo)

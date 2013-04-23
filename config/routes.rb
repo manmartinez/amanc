@@ -5,6 +5,9 @@ Amanc::Application.routes.draw do
    
   match '/play' => 'play#index', :via => :get
   match '/play/next_question' => 'play#next_question', :via => :post
+  match '/play/change_topic' => 'play#change_topic', :via => :get
+  match '/play/select_topic/:id' => 'play#select_topic', :via => :get, :as => :select_topic
+  match '/banners/view/:id' => 'banners#view', :as => :view_banner
   match '/login' => 'splash#login', :via => :get, :as => 'login'
   match '/logout' => 'splash#logout', :via => :get, :as => 'logout'
   match '/authenticate' => 'splash#authenticate', :via => :post, :as => 'authenticate'

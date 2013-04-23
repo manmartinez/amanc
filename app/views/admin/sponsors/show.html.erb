@@ -35,6 +35,9 @@
           <% @sponsor.banners.each do |banner| %>
             <div class="banner image_with_actions">
               <%= image_tag banner.image_url %>
+              <div class="banner_stats">
+                <i class="icon-hand-up"></i> <%= banner.clicks %> <i class="icon-eye-open"></i> <%= banner.views %>                
+              </div>
               <div class="image_actions">
                 <%= link_to admin_sponsor_banner_url(@sponsor, banner), :method => 'delete' do %>
                   <i class="icon-remove"></i>

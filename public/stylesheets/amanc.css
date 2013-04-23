@@ -28,6 +28,10 @@ ol {
   clear: both;
 }
 
+.not_so_small {
+  font-size: 1.5em;
+}
+
 .medium {
   font-size: 2em;
 }
@@ -103,11 +107,39 @@ a.green_btn {
   color: #FFFFFF;  
 }
 
+.green_btn:hover,
+a.green_btn:hover {
+  border: none,
+  outline: none;
+  background-color: #FFFFFF;
+  color: #aad400;
+  transition: background-color 200ms linear;
+  -webkit-transition: background-color 200ms linear;
+  -moz-transition: background-color 200ms linear;
+  -o-transition: background-color 200ms linear;
+}
+
 .blue_btn,
 a.blue_btn {
   background-color: #49CCED;
   color: #FFFFFF;    
 }
+
+a.inline:hover,
+a.inline:visited,
+a.inline:active,
+a.inline:link {
+  text-decoration: none;  
+}
+
+a.yellow:hover,
+a.yellow:visited,
+a.yellow:active,
+a.yellow:link {
+  color: #fce94f;
+}
+
+
 
 /* Flash */
 
@@ -219,18 +251,7 @@ a#start:hover,
 a#start:active,
 a#start:link,
 a#start {
-  font-size: 1.5em;
-  border: none,
-  outline: none;
-  transition: background-color 200ms linear;
-  -webkit-transition: background-color 200ms linear;
-  -moz-transition: background-color 200ms linear;
-  -o-transition: background-color 200ms linear;
-}
-
-a#start:hover {
-  background-color: #FFFFFF;
-  color: #aad400;
+  font-size: 1.5em;  
 }
 
 a.sponsor:active,
@@ -336,3 +357,86 @@ a.answer:hover{
   margin-bottom: 10px;
   padding-top: 6px;
 }
+#level_animation_container,
+.question_feedback {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  padding: 5px;  
+  font-size: 3em;
+  color: #FFFFFF;
+  background-color: #338000;
+  text-align: center;
+  opacity: 0;
+}
+
+#incorrect_animation_container {
+  background-color: #ef2929;
+}
+
+.question_feedback {
+  border-radius: 5px   ;
+  -webkit-border-radius: 5px   ;
+  -moz-border-radius: 5px   ;
+  -o-border-radius: 5px   ;
+  margin-left: -100px;
+}
+
+#level_animation_container {
+  width: 150px;
+  height: 150px;
+  margin-left: -75px
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.question_feedback.animate,
+#level_animation_container.animate {
+  animation: slideTop 1s linear;
+  -webkit-animation: slideTop 1s linear;
+}
+
+#level_animation_container .text_container {
+  display: block;
+  margin-top: 0.9em;
+  padding: 0 10px;
+}
+
+#game_ended p {
+  margin: 1em 0;
+}
+
+/* Change topics */
+
+.topic {
+  margin: 5px;
+}
+
+@keyframes slideTop {
+  0%{opacity: 0;margin-top: 80px;}
+  30%{opacity: 1; margin-top: 10px;}
+  60%{opacity: 1; margin-top: -10px;}
+  100%{opacity: 0; margin-top: -80px;}
+}
+@-webkit-keyframes slideTop {
+  0%{opacity: 0;margin-top: 80px;}
+  20%{opacity: 1; margin-top: 10px;}
+  80%{opacity: 1; margin-top: -10px;}
+  100%{opacity: 0; margin-top: -80px;}
+}
+@-moz-keyframes slideTop {
+  0%{opacity: 0;margin-top: 80px;}
+  30%{opacity: 1; margin-top: 10px;}
+  60%{opacity: 1; margin-top: -10px;}
+  100%{opacity: 0; margin-top: -80px;}
+}
+@-o-keyframes slideTop {
+  0%{opacity: 0;margin-top: 80px;}
+  30%{opacity: 1; margin-top: 10px;}
+  60%{opacity: 1; margin-top: -10px;}
+  100%{opacity: 0; margin-top: -80px;}
+}
+
+

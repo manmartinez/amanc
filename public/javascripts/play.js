@@ -6,18 +6,30 @@
       banner_container: null,
       score_container: null,
       level_container: null,
+      correct_container: null,
+      incorrect_container: null,
+      level: 1,
       init: function() {
+        this.initCorrectContainer();
+        this.initIncorrectContainer();
         this.initBannerContainer();
         this.initScoreContainer();
         this.initQuestionContainer();
         this.initLevelContainer();
         this.initAnswers();                
       },
+      initIncorrectContainer: function() {
+        this.incorrect_container = $('#incorrect_animation_container');
+      },
+      initCorrectContainer: function() {
+        this.correct_container = $('#correct_animation_container');
+      },
       initBannerContainer: function() {
         this.banner_container = $('#banner_wrapper');
       },
       initLevelContainer: function() {
         this.level_container = $('#current_level');
+        this.level_animation_container = $('#level_animation_container');
       },
       initQuestionContainer: function() {
         this.question_container = $('#question_container');
@@ -51,6 +63,7 @@
         });
       },
       onQuestionAnswered: function(data) {
+        this.displayFeedback(data);
         if(data.game.game['closed?']) {
           this.finishHim();
         }
@@ -61,18 +74,43 @@
         this.updateScore(data.game.game);
         this.updateLevel(data.game.game);
       },
+      displayFeedback: function(data) {        
+        var container = null;
+        if(data.answer_was_correct) {
+          if(data.game.game.level.level_number == this.level) {
+            container = this.correct_container;
+            this.correct_container.addClass('animate');
+          }          
+        }
+        else {
+          container = this.incorrect_container;
+          this.incorrect_container.addClass('animate');
+        }
+        setTimeout(function(){ if(container) { container.removeClass('animate') } },1000);
+      },
       changeBanner: function(banner) {
         this.banner_container.html('');
-        $('<img />').attr('src', banner.image_url).appendTo(this.banner_container);
+        var banner_link = $('<a></a>')
+                              .attr('href', this.view_banner_url.replace(/%id%/g, banner.id))
+                              .attr('target', '_blank');
+        $('<img />').attr('src', banner.image_url).appendTo(banner_link);
+        banner_link.appendTo(this.banner_container);
       },
       updateScore: function(game) {
         this.score_container.text(game.score);
       },
       updateLevel: function(game) {
-        this.level_container.text(game.level.level_number);
+        if(game.level.level_number != this.level) {
+          this.level = game.level.level_number;
+          this.level_animation_container.find('span.level_number').text(this.level);
+          this.level_animation_container.removeClass('animate');
+          this.level_animation_container.addClass('animate');
+          this.level_container.text(game.level.level_number);
+        }        
       },
       finishHim: function() {
-        alert('Finished!');
+        $('#question_container').hide();
+        $('#game_ended').fadeIn();
       },
       changeQuestion: function(hash) {
         var question = {
