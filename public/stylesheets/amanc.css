@@ -264,6 +264,11 @@ a.sponsor {
   display: block;
   float: left;
   margin: 0 20px;
+  height: 120px;
+}
+
+a.sponsor img {
+  max-height: 115px;
 }
 
 /* Play */
